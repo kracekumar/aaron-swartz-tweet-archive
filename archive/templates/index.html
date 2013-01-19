@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td></td>
+                <td>Username</td>
+                <td>Tweet</td>
+                <td>DateTime</td>
+            </tr>
+        </thead>
+    {% for tweet in tweets %}
+        <tr>
+            <td> <img src="{{ tweet.image }}" class="rounded"></td>
+            <td> {{ tweet.username }}</td>
+            <td> {{ tweet.status }} </td>
+            <td> {{ tweet.datetime }} </td>
+        </tr>
+        
+    {% endfor %}
+    </table>
+{% endblock %}

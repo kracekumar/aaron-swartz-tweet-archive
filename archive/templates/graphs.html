@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+    {{ results }}
+<script>
+    var donut = d3.layout.pie().value(function(d) {
+        return d.octetTotalCount;
+    });
+    //D3 helper function to create colors from an ordinal scale:
+    var color = d3.scale.category20();
+    function fillArray() {
+        return {
+            port: "port",
+            octetTotalCount: Math.ceil(Math.random()*(arrayRange))
+        };
+    }
+    var vis = d3.select("#easy-as-pie-chart").append("svg:svg").attr("width", 100).attr("height", 200);
+    var totalUnits = center_group.append("svg:text").attr("class", "units").attr("dy", 21)
+    .attr("text-anchor", "middle") // text-align: righ
+    .text("kb");
+    function update() {
+        arraySize = Math.ceil(Math.random()*10);
+        streakerDataAdded = d3.range(arraySize).map(fillArray);
+    }
+    paths = arc_group.selectAll("path").data(filteredPieData);
+paths.enter().append("svg:path")
+  .attr("stroke", "white")
+  .attr("stroke-width", 0.5)
+  .attr("fill", function(d, i) { return color(i); })
+  .transition()
+    .duration(tweenDuration)
+    .attrTween("d", pieTween);
+paths
+  .transition()
+    .duration(tweenDuration)
+    .attrTween("d", pieTween);
+paths.exit()
+  .transition()
+    .duration(tweenDuration)
+    .attrTween("d", removePieTween)
+  .remove();
+</script>
+{% endblock %}

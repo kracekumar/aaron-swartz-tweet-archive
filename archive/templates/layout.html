@@ -1,0 +1,18 @@
+<! DOCTYPE html>
+<head>
+  <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet" media="screen">
+  <script src="{{ url_for('static', filename='jquery-1.9.0.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='d3.v3.min.js') }}"></script>
+  <title> Aaron Swartz Tweet Archive </title>
+</head>
+<body>
+  <div class="container">
+    {% block menu %}
+        {% include "menu.html" %}
+    {% endblock %}
+    {% block content %}
+    {% endblock %}
+  </div>
+</body>
+</html>

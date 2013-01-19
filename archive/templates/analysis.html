@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Word</td>
+                <td>No of Times Repeated</td>
+            </tr>
+        </thead>
+    {% for word in words %}
+        <tr>
+            <td> {{ word[0] }}</td>
+            <td> {{ word[1] }} </td>
+        </tr>
+        
+    {% endfor %}
+    </table>
+{% endblock %}
