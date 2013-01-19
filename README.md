@@ -7,6 +7,8 @@ Innstall deps:
 
 `sudo pip install -r requirements.txt`
 
+`cp settings-sample.py settings.py`
+
 Add all tweets to db
 -------------
 
